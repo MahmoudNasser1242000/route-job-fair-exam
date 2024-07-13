@@ -11,17 +11,6 @@ interface IProps {
 const SearchForms = ({ searchAmountSubmit, searchNameSubmit }: IProps) => {
     const [amount, setAmount] = useState<string>("");
     const [name, setName] = useState<string>("");
-
-    const [trnas, setTrans] = useState<ITransaction[]>([]);
-    const getCustomerTransactions = async () => {
-        const { data } = await axios.get(`http://localhost:3000/transactions?amount=${amount}`);
-        setTrans(data)
-    }
-
-    useEffect(() => {
-        getCustomerTransactions()
-    }, [amount]);
-    
     return (
         <div className='flex justify-evenly flex-wrap md:space-y-0 space-y-4 align-middle mt-16'>
             <form className='lg:w-[40%] md:w-[45%] w-full' onSubmit={(e) => { searchNameSubmit(e, name) }}>

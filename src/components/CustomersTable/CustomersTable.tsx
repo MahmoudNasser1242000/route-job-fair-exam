@@ -1,6 +1,6 @@
 import axios from "axios";
 import CustomersInfo from "../CustomersInfo/CustomersInfo";
-import { ICustomer, ITransaction } from "../../../types/index.ts";
+import { ICustomer } from "../../../types/index.ts";
 import SearchForms from "../SearchForms/SearchForms.tsx";
 import { useEffect, useState } from "react";
 import TableSkeleton from "../TableSkeleton/TableSkeleton.tsx";
@@ -10,7 +10,6 @@ const CustomersTable = () => {
     const [amount, setAmount] = useState<string>("");
     const [customerName, setCustomerName] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
-    const [type, setType] = useState<string>("");
 
     const getCustomers = async (name: string) => {
         try {
