@@ -1,13 +1,27 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { ITransaction } from '../../../types';
 
 interface IProps {
     searchAmountSubmit: (e: React.FormEvent<HTMLFormElement>, amountValue: string)=> void,
     searchNameSubmit: (e: React.FormEvent<HTMLFormElement>, name: string)=> void,
+    getCustomers: (name: string)=> void
 }
 
 const SearchForms = ({ searchAmountSubmit, searchNameSubmit }: IProps) => {
     const [amount, setAmount] = useState<string>("");
     const [name, setName] = useState<string>("");
+
+    const [trnas, setTrans] = useState<ITransaction[]>([]);
+    const getCustomerTransactions = async () => {
+        const { data } = await axios.get(`http://localhost:3000/transactions?amount=${amount}`);
+        setTrans(data)
+    }
+
+    useEffect(() => {
+        getCustomerTransactions()
+    }, [amount]);
+    
     return (
         <div className='flex justify-evenly flex-wrap md:space-y-0 space-y-4 align-middle mt-16'>
             <form className='lg:w-[40%] md:w-[45%] w-full' onSubmit={(e) => { searchNameSubmit(e, name) }}>
@@ -56,7 +70,7 @@ const SearchForms = ({ searchAmountSubmit, searchNameSubmit }: IProps) => {
                     <input
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAmount(e.target.value) }}
                         value={amount}
-                        type="text"
+                        type="number"
                         id="Search"
                         placeholder="Search for..."
                         className="w-full rounded-md text-slate-950 border-gray-200 focus:ring-0 focus:border-[#050708]/60 focus:border-2 py-2.5 pe-10 shadow-sm sm:text-sm"
