@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 interface IProps {
     customer: ICustomer;
     amount: string;
-    index: number
+    index: number;
 }
 
 const CustomersInfo = ({ customer, amount, index }: IProps) => {
@@ -42,14 +42,25 @@ const CustomersInfo = ({ customer, amount, index }: IProps) => {
                         >
                             {index + 1}
                         </th>
-                        <Link to={`/customerChart/${customer.id}`}>
-                            <td className="px-6 py-4">{customer.name}</td>
-                        </Link>
+
+                        <td className="px-6 py-4">
+                            <Link to={`/customerChart/${customer.id}`}>
+                                {customer.name}
+                            </Link>
+                        </td>
                         <td className="px-6 py-4">
                             {clothestDate?.length &&
                                 new Date(Math.max(...clothestDate)).toLocaleDateString()}
                         </td>
-                        <td className="px-6 py-4">{customerTotalAmount}$</td>
+                        <td className="px-6 py-4">${customerTotalAmount}</td>
+                        <td className="px-6 py-4">
+                            <Link
+                                className="inline-block rounded bg-sky-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-sky-500"
+                                to={`/customerChart/${customer.id}`}
+                            >
+                                Chart
+                            </Link>
+                        </td>
                     </tr>
                 ) : ""
             }

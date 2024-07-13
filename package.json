@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@nivo/calendar": "^0.87.0",
-    "@tanstack/react-query": "^5.51.1",
     "axios": "^1.7.2",
     "flowbite": "^2.4.1",
     "flowbite-react": "^0.10.1",

@@ -9,7 +9,7 @@ const SearchForms = ({ searchAmountSubmit, searchNameSubmit }: IProps) => {
     const [amount, setAmount] = useState<string>("");
     const [name, setName] = useState<string>("");
     return (
-        <div className='flex justify-evenly align-middle mt-16'>
+        <div className='flex justify-evenly flex-wrap md:space-y-0 space-y-4 align-middle mt-16'>
             <form className='lg:w-[40%] md:w-[45%] w-full' onSubmit={(e) => { searchNameSubmit(e, name) }}>
                 <div className="relative">
                     <label htmlFor="Search" className="sr-only"> Search </label>
@@ -44,7 +44,7 @@ const SearchForms = ({ searchAmountSubmit, searchNameSubmit }: IProps) => {
                         </div>
                     </span>
                 </div>
-                <button type="submit" className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 my-2">
+                <button type="submit" className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 my-2">
                     Search with name
                 </button>
             </form>
@@ -83,7 +83,7 @@ const SearchForms = ({ searchAmountSubmit, searchNameSubmit }: IProps) => {
                         </div>
                     </span>
                 </div>
-                <button type="submit" className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 my-2">
+                <button type="submit" className="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 my-2">
                     Search with amount
                 </button>
             </form>
