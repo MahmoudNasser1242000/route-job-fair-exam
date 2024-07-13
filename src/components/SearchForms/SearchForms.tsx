@@ -1,6 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { ITransaction } from '../../../types';
+import React, { useState } from 'react'
 
 interface IProps {
     searchAmountSubmit: (e: React.FormEvent<HTMLFormElement>, amountValue: string)=> void,
